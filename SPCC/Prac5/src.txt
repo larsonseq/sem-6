@@ -1,0 +1,6 @@
+int sum = 10 + 20 ;
+int sub = 20 - 10 ;
+int total = sum + sub ;
+if ( total > 100 ) {
+sum + 1 ;
+}
