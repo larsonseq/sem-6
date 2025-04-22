@@ -1,8 +1,10 @@
 from tabulate import tabulate
 
+
 def read_source_file(filename):
     with open(filename, 'r') as file:
-        return [line.strip() for line in file.readlines()]
+        return [line.strip() for line in file.readlines() if line.strip()]
+
 
 def process_pass1(lines):
     mnt = []  # Macro Name Table
@@ -60,15 +62,17 @@ def process_pass1(lines):
                 in_macro = False
                 macro_def = []
                 current_macro = None
+    print(mdt)
+    print(f"\nMNT: {mnt}\n")
                 
     return mnt, mdt, ala, mntc, mdtc
+
 
 def process_pass2(lines, mnt, mdt, ala):
     mdt_pass2 = []
     ala_pass2 = []
     ala_pass2_index = 1
-    
-    # Rest of the process_pass2 function remains the same
+     
     # Create mapping of macro names to their definitions and arguments
     macro_map = {}
     current_mdt_index = 0
@@ -110,6 +114,7 @@ def process_pass2(lines, mnt, mdt, ala):
             "arguments": formal_args,
             "start_index": start_index
         }
+    print(macro_map)
     
     # Process each line for macro calls
     for line in lines:
@@ -155,6 +160,7 @@ def process_pass2(lines, mnt, mdt, ala):
     
     return mdt_pass2, ala_pass2
 
+
 def print_tables(mnt, mdt, ala, mdt_pass2, ala_pass2, mntc, mdtc):
     # MNT Table (Pass 1)
     mnt_headers = ["Index", "MacroName", "MacroIndex"]
@@ -188,12 +194,15 @@ def print_tables(mnt, mdt, ala, mdt_pass2, ala_pass2, mntc, mdtc):
     
     # Print counters
     print(f"\nFinal Counters: MNTC = {mntc}, MDTC = {mdtc}")
+
+
 def main():
     # Read and process the source file
     lines = read_source_file(r'C:\Users\Admin\Desktop\BE\sem 6\SPCC\Prac3\sourceCode.txt')
     mnt, mdt, ala, mntc, mdtc = process_pass1(lines)
     mdt_pass2, ala_pass2 = process_pass2(lines, mnt, mdt, ala)
     print_tables(mnt, mdt, ala, mdt_pass2, ala_pass2, mntc, mdtc)
+
 
 if __name__ == "__main__":
     main()

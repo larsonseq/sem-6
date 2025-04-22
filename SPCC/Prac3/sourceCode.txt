@@ -3,7 +3,6 @@ MACRO
 ADD &ARG1, &ARG2 
 L 1, &ARG1 
 A 1, &ARG2 
-, 
 MEND 
 MACRO 
 SUB &ARG3, &ARG4 

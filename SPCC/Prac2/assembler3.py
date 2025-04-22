@@ -1,6 +1,6 @@
 def evaluate_expression(expr, sym_table, lc):
     # Handle expressions like "L1 + 3" or "A-1"
-    parts = expr.replace(" ", "").replace("+", " + ").replace("-", " - ").split()
+    parts = expr.replace(" ", "").replace("+", " + ").replace("-", " - ").split() 
     result = 0
     op = "+"
     

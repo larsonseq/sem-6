@@ -173,6 +173,12 @@ def input_puzzle_state(prompt):
 
 def is_solvable(state):
     """Check if the puzzle is solvable"""
+    """
+    An inversion is a pair of tiles (a, b) such that a appears before b, but a > b. The blank (0) is ignored.
+    So, for each number, it checks how many smaller numbers come after it in the list.
+    If the number of inversions is even, the puzzle is solvable.
+    If odd, it's unsolvable.
+    """
     # Convert to 1D array for easier processing
     flat = [val for row in state for val in row]
     

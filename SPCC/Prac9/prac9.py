@@ -73,6 +73,7 @@ def optimize_code(lines):
         expressions[new_rhs] = lhs  # Track the new expression for possible future elimination
         optimized.append(f"{lhs} = {replaced_rhs}")
         copies[lhs] = lhs  # Record that lhs is assigned to itself (copy) 
+        # Above is not needed
 
     return optimized
 

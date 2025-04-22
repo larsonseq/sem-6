@@ -121,7 +121,7 @@ def human_move(board):
 
 # Main Game Loop
 def play_game():
-    board = [[EMPTY, EMPTY, EMPTY],
+    board = [[EMPTY] * 3,
              [EMPTY, EMPTY, EMPTY],
              [EMPTY, EMPTY, EMPTY]]
     

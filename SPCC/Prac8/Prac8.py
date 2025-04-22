@@ -52,6 +52,7 @@ def infix_to_postfix(tokens):
             stack.append(token)
     while stack:
         output.append(stack.pop())
+    print(f"\nPostfix is : {output}\n")
     return output
 
 # Generate Three-Address Code (3AC) from postfix expression
